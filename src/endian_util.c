@@ -1,4 +1,5 @@
 #include "endian_util.h"
+#include "checked.h"
 
 status_t le_write_u32(uint8_t *buf, size_t buf_len, size_t offset, uint32_t v)
 {

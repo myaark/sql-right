@@ -5,7 +5,7 @@
       "name": "Debug C",
       "type": "cppdbg",
       "request": "launch",
-      "program": "${workspaceFolder}/main",
+      "program": "${workspaceFolder}/bin/sql-right",
       "args": [],
       "cwd": "${workspaceFolder}",
       "environment": [

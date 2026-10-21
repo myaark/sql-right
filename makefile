@@ -1,8 +1,10 @@
 CC = gcc
-CFLAGS = -g -O0 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer
+CFLAGS = -g -O0 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -Iinclude
 LDLIBS = -lreadline
-SRC = $(wildcard *.c)
-OUT = main
+SRC_DIR = src
+SRC = $(wildcard $(SRC_DIR)/*.c)
+OUT_DIR = bin
+OUT = $(OUT_DIR)/sql-right
 
 .PHONY: all build run clean install-deps
 
@@ -12,6 +14,9 @@ build: $(OUT)
 
 $(OUT): $(SRC)
 	$(CC) $(CFLAGS) $(SRC) -o $(OUT) $(LDLIBS)
+
+$(OUT_DIR):
+	mkdir -p $(OUT_DIR)
 
 run: build
 	./$(OUT)

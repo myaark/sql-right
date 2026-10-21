@@ -4,14 +4,11 @@
     {
       "label": "build",
       "type": "shell",
-      "command": "gcc",
-      "args": [
-        "-g", "-O0", "-Wall", "-Wextra",
-        "-fsanitize=address,undefined",
-        "-fno-omit-frame-pointer",
-        "${workspaceFolder}/*.c",
-        "-o", "${workspaceFolder}/main"
-      ],
+      "command": "make",
+      "args": ["build"],
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
       "group": { "kind": "build", "isDefault": true },
       "problemMatcher": ["$gcc"]
     }

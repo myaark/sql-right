@@ -1,3 +1,4 @@
+#pragma once
 typedef enum
 {
     ST_OK = 0,
