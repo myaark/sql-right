@@ -2,7 +2,7 @@ CC = gcc
 CFLAGS = -g -O0 -Wall -Wextra -fsanitize=address,undefined -fno-omit-frame-pointer -Iinclude
 LDLIBS = -lreadline
 SRC_DIR = src
-SRC = $(wildcard $(SRC_DIR)/*.c)
+SRC = $(shell find $(SRC_DIR) -type f -name '*.c' -print)
 OUT_DIR = bin
 OUT = $(OUT_DIR)/sql-right
 
