@@ -12,7 +12,7 @@ all: build
 
 build: $(OUT)
 
-$(OUT): $(SRC)
+$(OUT): $(SRC) | $(OUT_DIR)
 	$(CC) $(CFLAGS) $(SRC) -o $(OUT) $(LDLIBS)
 
 $(OUT_DIR):
