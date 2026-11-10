@@ -15,6 +15,10 @@ typedef enum
 
     /* A required allocation failed. */
     ST_OUT_OF_MEMORY,
+
+    ST_PAGE_READ_INVALID,
+    ST_FILE_OPEN_FAILED,
+    ST_PAGE_WRITE_FAILED,
 } status_t;
 
 // TODO : MAKE THIS INTO DIFFERENT SECTIONS OF ERROR SERIES

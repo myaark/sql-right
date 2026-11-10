@@ -62,6 +62,7 @@ int main(void)
             break;
         }
 
+        //strips witespace off of the end of the line
         size_t n = strlen(line);
         while (n > 0 && isspace((unsigned char)line[n - 1]))
         {
