@@ -7,7 +7,7 @@
 #include "pager.h"
 
 
-status_t  file_read_page(Pager *pager, uint64_t page_no,
+status_t  pager_read_page(Pager *pager, uint64_t page_no,
                          uint8_t *buf){
     int file_descriptor = pager->fd;
 
@@ -29,7 +29,7 @@ status_t  file_read_page(Pager *pager, uint64_t page_no,
     return ST_OK;
 }
 
-status_t file_write_page(Pager *pager, uint64_t page_no,
+status_t pager_write_page(Pager *pager, uint64_t page_no,
                          uint8_t *buf){
     int file_descriptor = pager->fd;
     status_t err = ST_OK;

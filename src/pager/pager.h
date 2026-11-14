@@ -11,11 +11,11 @@ struct Pager
 
 typedef struct Pager Pager;
 
-status_t pager_open(const char *path, size_t page_size, Pager **out);
+status_t pager_open(const char *path, size_t page_size, Pager *out);
 status_t pager_close(Pager *pager);
-status_t pager_read_page(Pager *pager, uint64_t page_number,
+status_t pager_read_page(Pager *pager, uint64_t page_no,
                          uint8_t *buffer);
-status_t pager_write_page(Pager *pager, uint64_t page_number,
+status_t pager_write_page(Pager *pager, uint64_t page_no,
                           const uint8_t *buffer);
 status_t pager_sync(Pager *pager);
 status_t pager_truncate(Pager *pager, uint64_t page_count); //todo when needed
