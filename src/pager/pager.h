@@ -1,5 +1,4 @@
 #pragma once
-#include "pager.h"
 #include "status.h"
 #include <stddef.h>
 #include <stdint.h>
@@ -19,5 +18,5 @@ status_t pager_read_page(Pager *pager, uint64_t page_number,
 status_t pager_write_page(Pager *pager, uint64_t page_number,
                           const uint8_t *buffer);
 status_t pager_sync(Pager *pager);
-status_t pager_truncate(Pager *pager, uint64_t page_count);
-status_t pager_delete_page(Pager *pager, uint64_t page_number);
+status_t pager_truncate(Pager *pager, uint64_t page_count); //todo when needed
+status_t pager_delete_page(Pager *pager, uint64_t page_number); //todo when needed
