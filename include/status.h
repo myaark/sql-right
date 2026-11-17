@@ -17,8 +17,15 @@ typedef enum
     ST_OUT_OF_MEMORY,
 
     ST_PAGE_READ_INVALID,
+
     ST_FILE_OPEN_FAILED,
+
+    /*page write failure*/
     ST_PAGE_WRITE_FAILED,
+
+    ST_BAD_PAGE_SIZE,
+
+    ST_CORRUPT_PAGE_HEADER,
 } status_t;
 
 // TODO : MAKE THIS INTO DIFFERENT SECTIONS OF ERROR SERIES

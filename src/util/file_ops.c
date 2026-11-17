@@ -1,8 +1,10 @@
-#include "file_ops.h"
 #include <unistd.h>
 #include <stdio.h>
-#include "status.h"
 #include <fcntl.h>
+#include <sys/stat.h>
+#include <stdint.h>
+#include "file_ops.h"
+#include "status.h"
 
 status_t file_open(const char *filename, file_mode_t mode, int *fd_out)
 {
@@ -37,3 +39,10 @@ status_t file_close(int fd)
     return ST_OK;
 }
 
+status_t file_get_size(int fd, uint64_t *out_size)
+{
+    struct stat st;
+    if (fstat(fd, &st) != 0) return ST_IO_ERROR;
+    *out_size = (uint64_t)st.st_size;
+    return ST_OK;
+}

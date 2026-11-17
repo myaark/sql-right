@@ -9,3 +9,4 @@ typedef enum { //todo move to a better place
 
 status_t file_open(const char *filename, file_mode_t mode, int *fd_out);
 status_t file_close(int fd);
+status_t file_get_size(int fd, uint64_t *out_size);

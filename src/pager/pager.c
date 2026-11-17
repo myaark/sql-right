@@ -1,11 +1,45 @@
+#pragma once
 #include <unistd.h>
-#include <status.h>
 #include <stdint.h>
 #include <errno.h>
 #include "constants.h"
 #include "file_ops.h"
+#include "status.h"
 #include "pager.h"
+#include "pager_header.h"
 
+
+status_t pager_open(const char *path, size_t page_size, Pager *out)
+{
+    int *fd;
+    status_t err = file_open(path, FILE_MODE_READ, fd);
+    if(err != ST_OK)
+    {
+        return err;
+    }
+
+    uint64_t *file_size;
+    err = file_get_size(fd, file_size);
+    if(err != ST_OK)
+    {
+        return err;
+    }
+
+    uint8_t *buf = malloc(page_size);
+    out->fd = fd;
+    err = pager_read_page(out, 0, buf);
+    if(err != ST_OK)
+    {
+        return err;
+    }
+    PagerHeader *h;
+    err = header_parse(buf, page_size, file_size, h);
+    if(err != ST_OK)
+    {
+        return err;
+    }
+    return ST_OK;
+}
 
 status_t  pager_read_page(Pager *pager, uint64_t page_no,
                          uint8_t *buf){
